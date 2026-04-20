@@ -44,7 +44,10 @@
         {% for option in lesson.interactive.options %}
           <button type="button"
                   class="btn btn-outline-primary m-1 choice-btn"
-                  data-choice="{{ option }}">
+                  data-choice="{{ option }}"
+                  {% if lesson.interactive.type == "defense" %}
+                    data-url="{{ url_for('learn', n=lesson.id + option|int) }}"
+                  {% endif %}>
             {{ option }}
           </button>
         {% endfor %}
@@ -70,5 +73,6 @@
 
 <script>
   window.LESSON_ID = {{ n }};
+  window.LESSON_TYPE = "{{ lesson.interactive.type if lesson.interactive else '' }}";
 </script>
 {% endblock %}

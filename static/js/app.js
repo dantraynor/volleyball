@@ -13,6 +13,12 @@ $(document).ready(function () {
 
     $('#choice-feedback').text('Recorded: ' + choice).show();
 
+    if (window.LESSON_TYPE === "defense") 
+      {
+        const url = $btn.data('url');
+        window.location.href = url;
+      }
+
     $.ajax({
       url: '/api/lesson-choice',
       type: 'POST',

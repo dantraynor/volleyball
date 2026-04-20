@@ -69,6 +69,9 @@ def lesson_choice():
         })
     return jsonify({'ok': True})
 
+@app.route("/defend/<int:n>")
+def defend(n):
+    return f"Defense option {n}"
 
 @app.route('/quiz/<int:n>', methods=['GET', 'POST'])
 def quiz(n):

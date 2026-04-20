@@ -57,7 +57,7 @@
     "body": "When the other team attacks, everyone on defense has a zone. The libero (L) covers deep, while the outside hitters cover the sides and the middle blocker drops back off the net.",
     "note": "Pick a spot where the ball might land to see how the team shifts to defend.",
     "interactive": {
-      "type": "choice",
+      "type": "defense",
       "prompt": "Click a number to see how the team shifts to defend the ball:",
       "options": [
         "1",
