@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Home - 5-1 Volleyball{% endblock %}
+
+{% block content %}
+<div class="text-center py-5">
+  <h1 class="display-4 fw-bold">Learn How &amp; Why to Run the 5-1 Offensive System in Volleyball</h1>
+  <p class="lead mt-3">An interactive lesson</p>
+
+  <div class="row justify-content-center mt-5">
+    <div class="col-md-8">
+      <p>
+        In this lesson you'll learn how players rotate, attack, and defend in the
+        5-1 system &mdash; the most common offense in competitive volleyball.
+        You'll then test your understanding with a short quiz.
+      </p>
+    </div>
+  </div>
+
+  <form method="POST" action="{{ url_for('start') }}" class="mt-4">
+    <button type="submit" class="btn btn-primary btn-lg px-5">Start Learning</button>
+  </form>
+</div>
+{% endblock %}

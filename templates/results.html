@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Quiz Results{% endblock %}
+
+{% block content %}
+<div class="text-center py-4">
+  <h1 class="display-4 fw-bold">Nice Work!</h1>
+  <p class="display-1 fw-bold text-primary">{{ correct }} / {{ total }}</p>
+  <p class="lead">
+    You got <strong>{{ correct }}</strong> out of <strong>{{ total }}</strong> questions correct.
+  </p>
+</div>
+
+<hr>
+
+<h3 class="mt-4 mb-3">Review your answers</h3>
+
+{% for item in breakdown %}
+  <div class="card mb-3 {% if item.is_correct %}border-success{% else %}border-danger{% endif %}">
+    <div class="card-body">
+      <div class="d-flex justify-content-between align-items-start">
+        <h6 class="card-title mb-2">Question {{ loop.index }}</h6>
+        <span class="badge {% if item.is_correct %}bg-success{% else %}bg-danger{% endif %}">
+          {% if item.is_correct %}Correct{% else %}Incorrect{% endif %}
+        </span>
+      </div>
+      <p class="card-text">{{ item.question }}</p>
+      <p class="mb-1"><small>Your answer: <strong>{{ item.user_answer or '(no answer)' }}</strong></small></p>
+      {% if not item.is_correct %}
+        <p class="mb-1"><small>Correct answer: <strong>{{ item.correct_answer }}</strong></small></p>
+      {% endif %}
+      {% if item.feedback %}
+        <p class="mb-0 text-muted"><small><em>{{ item.feedback }}</em></small></p>
+      {% endif %}
+    </div>
+  </div>
+{% endfor %}
+
+<div class="text-center mt-4">
+  <a href="{{ url_for('learn', n=1) }}" class="btn btn-secondary">Review Lessons</a>
+  <a href="{{ url_for('quiz', n=1) }}" class="btn btn-primary">Retake Quiz</a>
+  <a href="{{ url_for('home') }}" class="btn btn-outline-primary">Back to Home</a>
+</div>
+{% endblock %}

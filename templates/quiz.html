@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}Quiz Question {{ n }}{% endblock %}
+
+{% block content %}
+<div class="mb-3">
+  <small class="text-muted">Question {{ n }} of {{ total }}</small>
+  <div class="progress" style="height: 4px;">
+    <div class="progress-bar bg-success" role="progressbar" style="width: {{ (n / total * 100) | round }}%"></div>
+  </div>
+</div>
+
+<div class="row mt-4">
+  <div class="col-md-6 mb-3">
+    {% if question.image %}
+      <img src="{{ url_for('static', filename='images/' + question.image) }}"
+           alt="Question {{ n }} diagram"
+           class="img-fluid border rounded"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+      <div class="bg-light border rounded p-5 text-center" style="display:none;">
+        <em>[Image placeholder: {{ question.image }}]</em>
+      </div>
+    {% else %}
+      <div class="bg-light border rounded p-4 text-center text-muted">
+        <em>(No diagram for this question)</em>
+      </div>
+    {% endif %}
+  </div>
+
+  <div class="col-md-6">
+    <h4>{{ question.question }}</h4>
+
+    <form method="POST" action="{{ url_for('quiz', n=n) }}" class="mt-3">
+      {% for option in question.options %}
+        <div class="form-check my-3 p-3 border rounded option-row">
+          <input class="form-check-input"
+                 type="radio"
+                 name="answer"
+                 id="opt_{{ option.label }}"
+                 value="{{ option.label }}"
+                 required>
+          <label class="form-check-label w-100" for="opt_{{ option.label }}">
+            <strong>{{ option.label }})</strong> {{ option.text }}
+          </label>
+        </div>
+      {% endfor %}
+
+      <button type="submit" class="btn btn-primary btn-lg mt-3">
+        {% if n < total %}Next &rarr;{% else %}Submit &amp; See Results{% endif %}
+      </button>
+    </form>
+  </div>
+</div>
+{% endblock %}

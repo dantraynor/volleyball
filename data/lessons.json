@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "title": "Start of Play",
+    "subtitle": "Understanding rotation positions",
+    "image": "rotation1_start.png",
+    "body": "Player starting positions depend on the players next to them: to the left/right/both, and behind. Before the serve, players have to stay in their rotation spots relative to their neighbors. Think of it like a seating chart you can't break until the ball is served.",
+    "note": "Example: Backrow O has to be behind S and to the right of L. After the ball is in play, they may move anywhere!"
+  },
+  {
+    "id": 2,
+    "title": "Rotation 1: Attack",
+    "subtitle": "The setter chooses where to send the ball",
+    "image": "rotation1_attack.png",
+    "body": "In rotation 1, the setter (S) is in the front row. When the ball is received, the setter has 3 different positions they can send it to: outside hitter, middle, or opposite.",
+    "interactive": {
+      "type": "choice",
+      "prompt": "Click a position to see where the setter might send the ball:",
+      "options": [
+        "Outside Hitter (O)",
+        "Middle (M)",
+        "Opposite Hitter (OP)"
+      ]
+    }
+  },
+  {
+    "id": 3,
+    "title": "Rotation 1: Defend",
+    "subtitle": "How the team covers the court",
+    "image": "rotation1_defend.png",
+    "body": "When the other team attacks, everyone on defense has a zone. The libero (L) covers deep, while the outside hitters cover the sides and the middle blocker drops back off the net.",
+    "note": "Pick a spot where the ball might land to see how the team shifts to defend."
+  },
+  {
+    "id": 4,
+    "title": "Rotation 1: Switch",
+    "subtitle": "Moving to base positions after the ball is live",
+    "image": "rotation1_switch.png",
+    "body": "Outside hitter and Opposite hitter are in the wrong spots after the serve! They have to switch before defending. The setter also pulls back to defend the back row.",
+    "note": "Switching is legal the moment the ball is served. Players run to their base positions."
+  },
+  {
+    "id": 5,
+    "title": "Rotation 2: Receive",
+    "subtitle": "Setting up for the next rotation",
+    "image": "rotation2_receive.png",
+    "body": "After a rotation, everyone shifts one position clockwise. Here's the new setup for rotation 2. The setter is now in the back row, which changes how the team attacks and defends.",
+    "note": "You'll see questions about rotation 2 in the quiz."
+  }
+]

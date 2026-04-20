@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "question": "Suppose the ball is received in rotation 2. What happens next?",
+    "image": "rotation2_attack.png",
+    "options": [
+      {
+        "label": "A",
+        "text": "Opposite hitter runs to the right, switching with middle. Outside hitter from the left side pulls up to attack."
+      },
+      {
+        "label": "B",
+        "text": "Opposite hitter runs to the left, middle comes to center, outside hitter from right pulls up to attack."
+      },
+      {
+        "label": "C",
+        "text": "Outside hitter from left pulls up to attack. Others stay."
+      }
+    ],
+    "correct": "B",
+    "feedback_correct": "Correct! The middle needs to get to their position in the center, and the opposite pulls up on the right.",
+    "feedback_incorrect": "Incorrect. The middle needs to get to their position in the center, unless we're running some special attack this one time."
+  },
+  {
+    "id": 2,
+    "question": "Suppose the ball was played over. Do outside hitter and opposite hitter need to switch now?",
+    "image": "rotation2_switch.png",
+    "options": [
+      {
+        "label": "A",
+        "text": "Yes"
+      },
+      {
+        "label": "B",
+        "text": "No"
+      }
+    ],
+    "correct": "B",
+    "feedback_correct": "Correct! They are already in their base positions: outside on the left, opposite hitter on the right.",
+    "feedback_incorrect": "Incorrect. They are already in their base positions: outside on the left, opposite hitter on the right."
+  },
+  {
+    "id": 3,
+    "question": "What is the primary role of the libero in the 5-1 system?",
+    "image": "",
+    "options": [
+      {
+        "label": "A",
+        "text": "Lead attacker in the front row"
+      },
+      {
+        "label": "B",
+        "text": "Set the ball to the hitters"
+      },
+      {
+        "label": "C",
+        "text": "Defensive specialist who covers the back row"
+      },
+      {
+        "label": "D",
+        "text": "Primary blocker at the net"
+      }
+    ],
+    "correct": "C",
+    "feedback_correct": "Correct! The libero specializes in defense and typically plays in the back row.",
+    "feedback_incorrect": "Incorrect. The libero is a defensive specialist who plays in the back row."
+  }
+]

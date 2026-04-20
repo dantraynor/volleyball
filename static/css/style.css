@@ -1,0 +1,25 @@
+/* style.css
+ * Minimal styles for HW10, HW11 to then work on graphic design.
+ */
+
+body {
+  background: #f8f9fa;
+}
+
+.option-row {
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.option-row:hover {
+  background: #f0f0f0;
+}
+
+.choice-btn {
+  transition: all 0.15s ease;
+}
+
+.card.border-success,
+.card.border-danger {
+  border-width: 2px;
+}
