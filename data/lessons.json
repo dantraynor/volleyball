@@ -9,9 +9,25 @@
   },
   {
     "id": 2,
-    "title": "Rotation 1: Attack",
-    "subtitle": "The setter chooses where to send the ball",
+    "title": "Rotation 1: Receive",
+    "subtitle": "The setter gets in position",
+    "image": "rotation1_receive.png",
+    "body": "The outside hitter (O) moves to hide the setter (S) - this way, the setter can have a clear path to the net! This helps in confusing the other team when transitioning into your attack.",
+    "note": ""
+  },
+  {
+    "id": 3,
+    "title": "Rotation 1: Attack (Part 1)",
+    "subtitle": "The setter gets in position to set and attackers get ready to attack",
     "image": "rotation1_attack.png",
+    "body": "As the setter (S) gets in position, the outside hitter (O) behind them comes up to the front row. This happens at the same as the libero (L) is defending the ball."
+  },
+
+   {
+    "id": 4,
+    "title": "Rotation 1: Attack (Part 2)",
+    "subtitle": "The setter chooses where to send the ball",
+    "image": "rotation1_attack2.png",
     "body": "In rotation 1, the setter (S) is in the front row. When the ball is received, the setter has 3 different positions they can send it to: outside hitter, middle, or opposite.",
     "interactive": {
       "type": "choice",
@@ -23,24 +39,54 @@
       ]
     }
   },
+
+    {
+    "id": 5,
+    "title": "Rotation 1: Switch",
+    "subtitle": "Moving to base positions after the ball is live",
+    "image": "rotation1_switch.png",
+    "body": "Outside Hitter (O) and Opposite Hitter (OP) are in the wrong spots after the serve! They have to switch before defending. The setter (S) also pulls back to defend the back row.",
+    "note": "Switching is legal the moment the ball is served. Players run to their base positions."
+  },
+
   {
-    "id": 3,
+    "id": 6,
     "title": "Rotation 1: Defend",
     "subtitle": "How the team covers the court",
     "image": "rotation1_defend.png",
     "body": "When the other team attacks, everyone on defense has a zone. The libero (L) covers deep, while the outside hitters cover the sides and the middle blocker drops back off the net.",
     "note": "Pick a spot where the ball might land to see how the team shifts to defend."
   },
+
   {
-    "id": 4,
-    "title": "Rotation 1: Switch",
-    "subtitle": "Moving to base positions after the ball is live",
-    "image": "rotation1_switch.png",
-    "body": "Outside hitter and Opposite hitter are in the wrong spots after the serve! They have to switch before defending. The setter also pulls back to defend the back row.",
-    "note": "Switching is legal the moment the ball is served. Players run to their base positions."
+    "id": 7,
+    "title": "Rotation 1: Defend (Outside)",
+    "subtitle": "How the team covers the court (ball hit to outside hitter)",
+    "image": "rotation1_defendoutside.png",
+    "body": "When the other team attacks, everyone on defense has a zone. The libero (L) covers deep, while the outside hitters cover the sides and the middle blocker drops back off the net.",
+    "note": "Pick a spot where the ball might land to see how the team shifts to defend."
   },
+
+    {
+    "id": 8,
+    "title": "Rotation 1: Defend (Middle)",
+    "subtitle": "How the team covers the court (ball hit to middle)",
+    "image": "rotation1_defendmiddle.png",
+    "body": "When the other team attacks, everyone on defense has a zone. The libero (L) covers deep, while the outside hitters cover the sides and the middle blocker drops back off the net.",
+    "note": "Pick a spot where the ball might land to see how the team shifts to defend."
+  },
+
+    {
+    "id": 9,
+    "title": "Rotation 1: Defend (Opposite)",
+    "subtitle": "How the team covers the court (ball hit to opposite hitter)",
+    "image": "rotation1_defendopposite.png",
+    "body": "When the other team attacks, everyone on defense has a zone. The libero (L) covers deep, while the outside hitters cover the sides and the middle blocker drops back off the net.",
+    "note": "Pick a spot where the ball might land to see how the team shifts to defend."
+  },
+
   {
-    "id": 5,
+    "id": 10,
     "title": "Rotation 2: Receive",
     "subtitle": "Setting up for the next rotation",
     "image": "rotation2_receive.png",
