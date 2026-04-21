@@ -84,18 +84,47 @@ def lesson_choice():
 
 @app.route("/quiz/<int:n>", methods=["GET", "POST"])
 def quiz(n):
-    if request.method == "POST":
-        answer = request.form.get("answer")
-        user_state["quiz_answers"][str(n)] = answer
-        if n < len(QUIZ):
-            return redirect(url_for("quiz", n=n + 1))
-        return redirect(url_for("results"))
-
     if n < 1 or n > len(QUIZ):
-        return redirect(url_for("results"))
-    question = QUIZ[n - 1]
-    return render_template("quiz.html", question=question, n=n, total=len(QUIZ))
+        return redirect(url_for('results'))
 
+    question = QUIZ[n - 1]
+
+    if request.method == 'POST':
+        action = request.form.get('action')
+
+        if action == 'submit':
+            answer = request.form.get('answer')
+            user_state['quiz_answers'][str(n)] = answer
+
+            is_correct = (answer == question['correct'])
+            feedback = question['feedback_correct'] if is_correct else question['feedback_incorrect']
+
+            return render_template(
+                'quiz.html',
+                question=question,
+                n=n,
+                total=len(QUIZ),
+                answered=True,
+                selected_answer=answer,
+                is_correct=is_correct,
+                feedback=feedback
+            )
+
+        elif action == 'next':
+            if n < len(QUIZ):
+                return redirect(url_for('quiz', n=n + 1))
+            return redirect(url_for('results'))
+
+    return render_template(
+        'quiz.html',
+        question=question,
+        n=n,
+        total=len(QUIZ),
+        answered=False,
+        selected_answer=None,
+        is_correct=None,
+        feedback=None
+    )
 
 @app.route("/results")
 def results():
