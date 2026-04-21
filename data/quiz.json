@@ -35,7 +35,7 @@
         "text": "Outside hitter from left pulls up to attack. Others stay."
       }
     ],
-    "correct": "B",
+    "correct": "A",
     "feedback_correct": "Correct! The middle needs to get to their position in the center, and the opposite pulls up on the right.",
     "feedback_incorrect": "Incorrect. The middle needs to get to their position in the center, unless we're running some special attack this one time."
   },
