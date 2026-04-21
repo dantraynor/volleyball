@@ -1,74 +1,149 @@
-{% extends "base.html" %}
-{% block title %}Lesson {{ n }} - 5-1 Volleyball{% endblock %}
-
-{% block content %}
+{% extends "base.html" %} {% block title %}Lesson {{ n }} - 5-1 Volleyball{%
+endblock %} {% block content %}
 <div class="mb-3">
-  <small class="text-muted">Lesson {{ n }} of {{ total }}</small>
-  <div class="progress" style="height: 4px;">
-    <div class="progress-bar" role="progressbar" style="width: {{ (n / total * 100) | round }}%"></div>
-  </div>
+    <small class="text-muted">Lesson {{ n }} of {{ total }}</small>
+    <div class="progress" style="height: 4px">
+        <div
+            class="progress-bar"
+            role="progressbar"
+            style="width: {{ (n / total * 100) | round }}%"
+        ></div>
+    </div>
 </div>
 
 <h2>{{ lesson.title }}</h2>
 {% if lesson.subtitle %}
-  <h5 class="text-muted">{{ lesson.subtitle }}</h5>
+<h5 class="text-muted">{{ lesson.subtitle }}</h5>
 {% endif %}
 
-<div class="row mt-4">
-  <div class="col-md-6 mb-3">
-    {% if lesson.image %}
-      <img src="{{ url_for('static', filename='images/' + lesson.image) }}"
-           alt="{{ lesson.title }} diagram"
-           class="img-fluid border rounded"
-           onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-      <div class="bg-light border rounded p-5 text-center" style="display:none;">
-        <em>[Image placeholder: {{ lesson.image }}]</em><br>
-        <small class="text-muted">Add <code>{{ lesson.image }}</code> to <code>static/images/</code></small>
-      </div>
-    {% else %}
-      <div class="bg-light border rounded p-5 text-center">
-        <em>[No image for this lesson]</em>
-      </div>
-    {% endif %}
-  </div>
-
-  <div class="col-md-6">
+{% if lesson.table %}
+<div class="mt-4 lesson-text">
     <p>{{ lesson.body }}</p>
     {% if lesson.note %}
-      <p class="text-muted"><em>{{ lesson.note }}</em></p>
+    <p class="text-muted"><em>{{ lesson.note }}</em></p>
     {% endif %}
-
-    {% if lesson.interactive %}
-      <div class="mt-4 p-3 bg-light rounded" id="interactive">
-        <p class="mb-2"><strong>{{ lesson.interactive.prompt }}</strong></p>
-        {% for option in lesson.interactive.options %}
-          <button type="button"
-                  class="btn btn-outline-primary m-1 choice-btn"
-                  data-choice="{{ option }}">
-            {{ option }}
-          </button>
-        {% endfor %}
-        <p class="mt-2 mb-0 small text-success" id="choice-feedback" style="display:none;"></p>
-      </div>
-    {% endif %}
-  </div>
+    <div class="table-responsive">
+        <table class="table table-sm table-bordered align-middle">
+            <thead class="table-light">
+                <tr>
+                    <th>Position</th>
+                    <th>On the Court</th>
+                    <th>Offense</th>
+                    <th>Defense</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in lesson.table %}
+                <tr>
+                    <td><strong>{{ row.name }} ({{ row.abbreviation }})</strong></td>
+                    <td>{{ row.position }}</td>
+                    <td>{{ row.offense }}</td>
+                    <td>{{ row.defense }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </div>
+{% else %}
+<div class="row mt-4">
+    <div class="col-md-6 mb-3">
+        {% if lesson.image %}
+        <img
+            src="{{ url_for('static', filename='images/' + lesson.image) }}"
+            alt="{{ lesson.title }} diagram"
+            class="img-fluid border rounded"
+            onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'block';
+            "
+        />
+        <div
+            class="bg-light border rounded p-5 text-center"
+            style="display: none"
+        >
+            <em>[Image placeholder: {{ lesson.image }}]</em><br />
+            <small class="text-muted"
+                >Add <code>{{ lesson.image }}</code> to
+                <code>static/images/</code></small
+            >
+        </div>
+        {% else %}
+        <div class="bg-light border rounded p-5 text-center">
+            <em>[No image for this lesson]</em>
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="col-md-6 lesson-text">
+        <p>{{ lesson.body }}</p>
+        {% if lesson.note %}
+        <p class="text-muted"><em>{{ lesson.note }}</em></p>
+        {% endif %} {% if lesson.interactive %}
+        <div class="mt-4 p-3 bg-light rounded" id="interactive">
+            <p class="mb-2"><strong>{{ lesson.interactive.prompt }}</strong></p>
+            {% for option in lesson.interactive.options %}
+            <button
+                type="button"
+                class="btn btn-outline-primary m-1 choice-btn"
+                data-choice="{{ option }}"
+                {%
+                if
+                lesson.interactive.type=="defense"
+                %}
+                data-url="{{ url_for('learn', n=lesson.id + option|int) }}"
+                {%
+                endif
+                %}
+            >
+                {{ option }}
+            </button>
+            {% endfor %}
+            <p
+                class="mt-2 mb-0 small text-success"
+                id="choice-feedback"
+                style="display: none"
+            ></p>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endif %}
 
 <div class="d-flex justify-content-between mt-5">
-  {% if n > 1 %}
-    <a href="{{ url_for('learn', n=n-1) }}" class="btn btn-secondary">&larr; Back</a>
-  {% else %}
-    <a href="{{ url_for('home') }}" class="btn btn-outline-secondary">&larr; Home</a>
-  {% endif %}
-
-  {% if n < total %}
-    <a href="{{ url_for('learn', n=n+1) }}" class="btn btn-primary">Next &rarr;</a>
-  {% else %}
-    <a href="{{ url_for('quiz', n=1) }}" class="btn btn-success">Start Quiz &rarr;</a>
-  {% endif %}
+    {% if n > 1 %}
+    <a href="{{ url_for('learn', n=lesson.back if lesson.back is defined else n-1) }}" class="btn btn-secondary"
+        >&larr; Back</a
+    >
+    {% else %}
+    <a href="{{ url_for('home') }}" class="btn btn-outline-secondary"
+        >&larr; Home</a
+    >
+    {% endif %}
+    {% if lesson.nextBlocked %}
+    {% elif n < total and not lesson.interactive %}
+    <a href="{{ url_for('learn', n=n+1) }}" class="btn btn-primary"
+        >Next &rarr;</a
+    >
+    {% elif lesson.interactive %}
+    <a
+        href="{{ url_for('learn', n=n+1+lesson.interactive.options|length) }}"
+        class="btn btn-primary"
+        >Next &rarr;</a
+    >
+    {% else %}
+    <a href="{{ url_for('quiz', n=1) }}" class="btn btn-success"
+        >Start Quiz &rarr;</a
+    >
+    {% endif %}
 </div>
 
+{% endblock %}
+
+{% block scripts %}
 <script>
-  window.LESSON_ID = {{ n }};
+    window.LESSON_ID = {{ n }};
+    window.LESSON_TYPE = "{{ lesson.interactive.type if lesson.interactive else '' }}";
+    window.LESSON_POPUPS = {{ lesson.popups | tojson if lesson.popups is defined and lesson.popups else '[]' }};
 </script>
 {% endblock %}
