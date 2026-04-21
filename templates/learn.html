@@ -16,6 +16,36 @@ endblock %} {% block content %}
 <h5 class="text-muted">{{ lesson.subtitle }}</h5>
 {% endif %}
 
+{% if lesson.table %}
+<div class="mt-4 lesson-text">
+    <p>{{ lesson.body }}</p>
+    {% if lesson.note %}
+    <p class="text-muted"><em>{{ lesson.note }}</em></p>
+    {% endif %}
+    <div class="table-responsive">
+        <table class="table table-sm table-bordered align-middle">
+            <thead class="table-light">
+                <tr>
+                    <th>Position</th>
+                    <th>On the Court</th>
+                    <th>Offense</th>
+                    <th>Defense</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in lesson.table %}
+                <tr>
+                    <td><strong>{{ row.name }} ({{ row.abbreviation }})</strong></td>
+                    <td>{{ row.position }}</td>
+                    <td>{{ row.offense }}</td>
+                    <td>{{ row.defense }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% else %}
 <div class="row mt-4">
     <div class="col-md-6 mb-3">
         {% if lesson.image %}
@@ -45,7 +75,7 @@ endblock %} {% block content %}
         {% endif %}
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-6 lesson-text">
         <p>{{ lesson.body }}</p>
         {% if lesson.note %}
         <p class="text-muted"><em>{{ lesson.note }}</em></p>
@@ -78,6 +108,7 @@ endblock %} {% block content %}
         {% endif %}
     </div>
 </div>
+{% endif %}
 
 <div class="d-flex justify-content-between mt-5">
     {% if n > 1 %}
@@ -107,8 +138,12 @@ endblock %} {% block content %}
     {% endif %}
 </div>
 
+{% endblock %}
+
+{% block scripts %}
 <script>
     window.LESSON_ID = {{ n }};
     window.LESSON_TYPE = "{{ lesson.interactive.type if lesson.interactive else '' }}";
+    window.LESSON_POPUPS = {{ lesson.popups | tojson if lesson.popups is defined and lesson.popups else '[]' }};
 </script>
 {% endblock %}
