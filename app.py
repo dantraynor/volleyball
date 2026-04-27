@@ -120,6 +120,14 @@ def lesson_choice():
 # def defend(n):
 #     return f"Defense option {n}"
 
+@app.route('/quiz-intro')
+def quiz_intro():
+    return render_template('quiz_intro.html')
+
+
+@app.route('/quiz-setup')
+def quiz_setup():
+    return render_template('quiz_setup.html')
 
 @app.route("/quiz/<int:n>", methods=["GET", "POST"])
 def quiz(n):
