@@ -3,7 +3,17 @@
 
 {% block content %}
 <div class="text-center py-4">
-  <h1 class="display-4 fw-bold">Nice Work!</h1>
+  {% if correct == total %}
+    <h1 class="display-4 fw-bold">Perfect Score!</h1>
+    <p class="lead">You understand the 5-1 rotation setup well.</p>
+  {% elif correct == total - 1 %}
+    <h1 class="display-4 fw-bold">Nice Work!</h1>
+    <p class="lead">You’re close. Review the explanation for the question you missed.</p>
+  {% else %}
+    <h1 class="display-4 fw-bold">Keep Practicing!</h1>
+    <p class="lead">Review the lesson and try the quiz again to strengthen your understanding.</p>
+  {% endif %}
+
   <p class="display-1 fw-bold text-primary">{{ correct }} / {{ total }}</p>
   <p class="lead">
     You got <strong>{{ correct }}</strong> out of <strong>{{ total }}</strong> questions correct.
@@ -37,7 +47,7 @@
 
 <div class="text-center mt-4">
   <a href="{{ url_for('learn', n=1) }}" class="btn btn-secondary">Review Lessons</a>
-  <a href="{{ url_for('quiz', n=1) }}" class="btn btn-primary">Retake Quiz</a>
+  <a href="{{ url_for('quiz_intro') }}" class="btn btn-primary">Retake Quiz</a>
   <a href="{{ url_for('home') }}" class="btn btn-outline-primary">Back to Home</a>
 </div>
 {% endblock %}
