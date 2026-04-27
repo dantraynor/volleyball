@@ -1,5 +1,7 @@
-{% extends "base.html" %} {% block title %}Lesson {{ n }} - 5-1 Volleyball{%
-endblock %} {% block content %}
+{% extends "base.html" %}
+{% block head %}<link rel="stylesheet" href="{{ url_for('static', filename='css/court.css') }}">{% endblock %}
+{% block title %}Lesson {{ n }} - 5-1 Volleyball{% endblock %}
+{% block content %}
 <div class="mb-3">
     <small class="text-muted">Lesson {{ n }} of {{ total }}</small>
     <div class="progress" style="height: 4px">
@@ -48,7 +50,10 @@ endblock %} {% block content %}
 {% else %}
 <div class="row mt-4">
     <div class="col-md-6 mb-3">
-        {% if lesson.image %}
+        {% if lesson.diagram %}
+        {% set diagram = lesson.diagram %}
+        {% include '_court.html' %}
+        {% elif lesson.image %}
         <img
             src="{{ url_for('static', filename='images/' + lesson.image) }}"
             alt="{{ lesson.title }} diagram"
@@ -79,7 +84,7 @@ endblock %} {% block content %}
         <p>{{ lesson.body }}</p>
         {% if lesson.note %}
         <p class="text-muted"><em>{{ lesson.note }}</em></p>
-        {% endif %} {% if lesson.interactive %}
+        {% endif %} {% if lesson.interactive and not (lesson.diagram and lesson.diagram.zones) %}
         <div class="mt-4 p-3 bg-light rounded" id="interactive">
             <p class="mb-2"><strong>{{ lesson.interactive.prompt }}</strong></p>
             {% for option in lesson.interactive.options %}
@@ -141,6 +146,7 @@ endblock %} {% block content %}
 {% endblock %}
 
 {% block scripts %}
+<script src="{{ url_for('static', filename='js/court.js') }}"></script>
 <script>
     window.LESSON_ID = {{ n }};
     window.LESSON_TYPE = "{{ lesson.interactive.type if lesson.interactive else '' }}";

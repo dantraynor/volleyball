@@ -1,0 +1,197 @@
+/* court.css — SVG volleyball court diagram styles */
+
+.court-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Player circles — default */
+.player circle {
+    stroke: #555;
+    stroke-width: 3;
+    fill: #ccc;
+}
+.player text {
+    font-size: 22px;
+    font-weight: 700;
+    fill: #222;
+    text-anchor: middle;
+    dominant-baseline: central;
+    pointer-events: none;
+    font-family: inherit;
+}
+
+/* Role-based fills matching the original images */
+.player.outside circle {
+    fill: #ffa040;
+}
+.player.outside text {
+    fill: #222;
+}
+.player.opposite circle {
+    fill: #ffe040;
+}
+.player.opposite text {
+    fill: #222;
+}
+.player.libero circle {
+    fill: #ff44cc;
+}
+.player.libero text {
+    fill: #222;
+}
+.player.middle circle {
+    fill: #4488ee;
+}
+.player.middle text {
+    fill: #fff;
+}
+.player.setter circle {
+    fill: #44ee00;
+}
+.player.setter text {
+    fill: #222;
+}
+
+/* Opponent player (P) */
+.player.opponent circle {
+    fill: #ccc;
+    stroke: #888;
+}
+.player.opponent text {
+    fill: #333;
+}
+
+/* Clickable zone balls */
+.zone-link {
+    cursor: pointer;
+}
+.zone-link circle {
+    transition: filter 0.15s;
+}
+.zone-link:hover circle {
+    filter: brightness(0.85);
+}
+
+/* Arrow paths */
+.move-arrow {
+    fill: none;
+    stroke: #2244cc;
+    stroke-width: 3;
+    opacity: 0.9;
+}
+.arrowhead {
+    fill: #2244cc;
+}
+
+/* ── Play Around sandbox ──────────────────────────────────────────────────── */
+
+#court-drop {
+    position: relative;
+    display: block;
+}
+
+.play-palette {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    min-height: 84px;
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+}
+
+.palette-item,
+.placed-player {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: #222;
+    border: 3px solid #555;
+    background: #ccc;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+.palette-item {
+    cursor: grab;
+}
+.palette-item:active {
+    cursor: grabbing;
+}
+
+.placed-player {
+    position: absolute;
+    cursor: grab;
+}
+.placed-player:active {
+    cursor: grabbing;
+}
+
+/* Role colors — match court.css SVG fills */
+.palette-item.outside,
+.placed-player.outside {
+    background: #ffa040;
+}
+.palette-item.opposite,
+.placed-player.opposite {
+    background: #ffe040;
+}
+.palette-item.libero,
+.placed-player.libero {
+    background: #ff44cc;
+}
+.palette-item.middle,
+.placed-player.middle {
+    background: #4488ee;
+    color: #fff;
+    border-color: #4488ee;
+}
+.palette-item.setter,
+.placed-player.setter {
+    background: #44ee00;
+}
+
+/* Trash state while dragging a placed player */
+.palette-trash-label {
+    display: none;
+    align-items: center;
+    gap: 6px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #dc2626;
+}
+.play-palette.trash-active {
+    background: #fee2e2;
+    border-color: #ef4444;
+    border-style: dashed;
+    justify-content: center;
+}
+.play-palette.trash-active .palette-item {
+    display: none;
+}
+.play-palette.trash-active .palette-trash-label {
+    display: flex;
+}
+.play-palette.trash-hover {
+    background: #ef4444;
+    border-color: #ef4444;
+}
+.play-palette.trash-hover .palette-trash-label {
+    color: #fff;
+}
+
+/* Ball */
+.palette-item.ball,
+.placed-player.ball {
+    background: #fff url("/static/images/volleyball.png") center/cover no-repeat;
+    border-color: #ccc;
+}

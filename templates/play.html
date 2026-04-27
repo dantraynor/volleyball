@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block head %}
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/court.css') }}">
+{% endblock %}
+{% block title %}Play Around - 5-1 Volleyball{% endblock %}
+
+{% block content %}
+<h2 class="mb-3">Play Around</h2>
+<p class="text-muted mb-3">Drag players from the bar onto the court. Drag them off the court to remove.</p>
+
+{% set diagram = {"players": []} %}
+<div id="court-drop">
+  {% include '_court.html' %}
+</div>
+
+<div class="play-palette mt-3">
+  <div class="palette-trash-label">🗑 Drop here to remove</div>
+  <div class="palette-item outside" data-role="outside" data-label="OH">OH</div>
+  <div class="palette-item middle" data-role="middle" data-label="MB">MB</div>
+  <div class="palette-item setter" data-role="setter" data-label="S">S</div>
+  <div class="palette-item opposite" data-role="opposite" data-label="OPP">OPP</div>
+  <div class="palette-item libero" data-role="libero" data-label="L">L</div>
+  <div class="palette-item ball" data-role="ball" data-label=""></div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+<script src="{{ url_for('static', filename='js/court.js') }}"></script>
+<script src="{{ url_for('static', filename='js/play.js') }}"></script>
+{% endblock %}

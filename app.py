@@ -3,6 +3,7 @@
 Flask backend for HW10 Technical Prototype
 """
 
+import copy
 import json
 import os
 from datetime import datetime
@@ -59,6 +60,44 @@ def learn(n):
         return redirect(url_for("home"))
     lesson = LESSONS[n - 1]
     user_state["lesson_visits"][str(n)] = datetime.now().isoformat()
+
+    # Resolve inheritFrom: copy players from the referenced lesson's diagram
+    diagram = lesson.get("diagram")
+    if diagram and diagram.get("inheritFrom"):
+        ref_id = diagram["inheritFrom"]
+        ref = next((l for l in LESSONS if l["id"] == ref_id), None)
+        if ref and ref.get("diagram"):
+            lesson = dict(lesson)
+            lesson["diagram"] = dict(diagram)
+            ref_players = ref["diagram"].get("players", [])
+            if diagram.get("inheritPositions") == "end":
+                base_players = [
+                    {
+                        "id": p["id"],
+                        "label": p.get("label", p["id"]),
+                        "role": p.get("role", ""),
+                        "at": p.get("to") or p.get("at"),
+                    }
+                    for p in ref_players
+                ]
+            else:
+                base_players = copy.deepcopy(ref_players)
+            own_by_id = {p["id"]: p for p in diagram.get("players", [])}
+            if own_by_id:
+                seen = set()
+                merged = []
+                for p in base_players:
+                    merged.append(
+                        copy.deepcopy(own_by_id[p["id"]]) if p["id"] in own_by_id else p
+                    )
+                    seen.add(p["id"])
+                for p in diagram.get("players", []):
+                    if p["id"] not in seen:
+                        merged.append(copy.deepcopy(p))
+                lesson["diagram"]["players"] = merged
+            else:
+                lesson["diagram"]["players"] = base_players
+
     return render_template("learn.html", lesson=lesson, n=n, total=len(LESSONS))
 
 
@@ -85,46 +124,51 @@ def lesson_choice():
 @app.route("/quiz/<int:n>", methods=["GET", "POST"])
 def quiz(n):
     if n < 1 or n > len(QUIZ):
-        return redirect(url_for('results'))
+        return redirect(url_for("results"))
 
     question = QUIZ[n - 1]
 
-    if request.method == 'POST':
-        action = request.form.get('action')
+    if request.method == "POST":
+        action = request.form.get("action")
 
-        if action == 'submit':
-            answer = request.form.get('answer')
-            user_state['quiz_answers'][str(n)] = answer
+        if action == "submit":
+            answer = request.form.get("answer")
+            user_state["quiz_answers"][str(n)] = answer
 
-            is_correct = (answer == question['correct'])
-            feedback = question['feedback_correct'] if is_correct else question['feedback_incorrect']
+            is_correct = answer == question["correct"]
+            feedback = (
+                question["feedback_correct"]
+                if is_correct
+                else question["feedback_incorrect"]
+            )
 
             return render_template(
-                'quiz.html',
+                "quiz.html",
                 question=question,
                 n=n,
                 total=len(QUIZ),
                 answered=True,
                 selected_answer=answer,
                 is_correct=is_correct,
-                feedback=feedback
+                feedback=feedback,
             )
 
-        elif action == 'next':
+        elif action == "next":
             if n < len(QUIZ):
-                return redirect(url_for('quiz', n=n + 1))
-            return redirect(url_for('results'))
+                return redirect(url_for("quiz", n=n + 1))
+            return redirect(url_for("results"))
 
     return render_template(
-        'quiz.html',
+        "quiz.html",
         question=question,
         n=n,
         total=len(QUIZ),
         answered=False,
         selected_answer=None,
         is_correct=None,
-        feedback=None
+        feedback=None,
     )
+
 
 @app.route("/results")
 def results():
@@ -152,6 +196,11 @@ def results():
     return render_template(
         "results.html", correct=correct_count, total=len(QUIZ), breakdown=breakdown
     )
+
+
+@app.route("/play")
+def play():
+    return render_template("play.html")
 
 
 @app.route("/api/debug-state")
