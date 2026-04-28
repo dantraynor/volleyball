@@ -56,7 +56,7 @@
         {% elif lesson.image %}
         <img
             src="{{ url_for('static', filename='images/' + lesson.image) }}"
-            alt="{{ lesson.title }} diagram"
+            alt="{{ lesson.alt }}"
             class="img-fluid border rounded"
             onerror="
                 this.style.display = 'none';
