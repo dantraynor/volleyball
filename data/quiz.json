@@ -3,7 +3,11 @@
     "id": 1,
     "question": "Based on what you learned about allowed positions, is this a valid position before play starts?",
     "image": "rotaion2_receiveq.png",
+<<<<<<< HEAD
     "concept": "starting positions and rotation rules",
+=======
+    "alt": "Serve and receive volleyball formation showing six players in position: outside hitters on the left, libero in middle back, setter in middle front, opposite in right front, and middle blocker in right back, with a server on the opposite side. Positions are fixed relative to teammates before the serve.",
+>>>>>>> 360c4475611d78adfb395726571297f52c002d71
     "options": [
       {
         "label": "A",
@@ -22,7 +26,11 @@
     "id": 2,
     "question": "Suppose the ball is received in rotation 2. What happens next?",
     "image": "rotation2_attack.png",
+<<<<<<< HEAD
     "concept": "player movement and switching after receive",
+=======
+    "alt": "Volleyball formation showing six players setting up to attack: outside hitters on the left, libero in middle back, setter in middle front, opposite in right front, and middle blocker in right back, with a server on the opposite side. The libero currently has the volleyball.",
+>>>>>>> 360c4475611d78adfb395726571297f52c002d71
     "options": [
       {
         "label": "A",
@@ -45,7 +53,11 @@
     "id": 3,
     "question": "Suppose the ball was played over. Do outside hitter and opposite hitter need to switch now?",
     "image": "rotation2_switch.png",
+<<<<<<< HEAD
     "concept": "base positions and when switching is needed",
+=======
+    "alt": "Serve and receive volleyball formation showing six players: outside hitters on the left front and left back, libero in middle left back, middle blocker in middle front, setter in right front, and opposite hitter in right back, with a server on the opposite side.",
+>>>>>>> 360c4475611d78adfb395726571297f52c002d71
     "options": [
       {
         "label": "A",
