@@ -190,14 +190,13 @@ def results():
             correct_count += 1
         breakdown.append(
             {
-                "id": q["id"],
-                "question": q["question"],
-                "user_answer": user_ans,
-                "correct_answer": q["correct"],
-                "is_correct": is_correct,
-                "feedback": q.get("feedback_correct")
-                if is_correct
-                else q.get("feedback_incorrect"),
+                'id': q['id'],
+                'question': q['question'],
+                'concept': q.get('concept', 'this concept'),
+                'user_answer': user_ans,
+                'correct_answer': q['correct'],
+                'is_correct': is_correct,
+                'feedback': q.get('feedback_correct') if is_correct else q.get('feedback_incorrect'),
             }
         )
     user_state["finished_at"] = datetime.now().isoformat()

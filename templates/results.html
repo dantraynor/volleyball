@@ -22,28 +22,42 @@
 
 <hr>
 
-<h3 class="mt-4 mb-3">Review your answers</h3>
+<h3 class="mt-4 mb-3 text-center">Review your answers</h3>
 
-{% for item in breakdown %}
-  <div class="card mb-3 {% if item.is_correct %}border-success{% else %}border-danger{% endif %}">
-    <div class="card-body">
-      <div class="d-flex justify-content-between align-items-start">
-        <h6 class="card-title mb-2">Question {{ loop.index }}</h6>
-        <span class="badge {% if item.is_correct %}bg-success{% else %}bg-danger{% endif %}">
-          {% if item.is_correct %}Correct{% else %}Incorrect{% endif %}
-        </span>
+<div class="row g-3">
+  {% for item in breakdown %}
+    <div class="col-md-4">
+      <div class="card h-100 {% if item.is_correct %}border-success{% else %}border-danger{% endif %}">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <h6 class="card-title mb-0">Question {{ loop.index }}</h6>
+            <span class="badge {% if item.is_correct %}bg-success{% else %}bg-danger{% endif %}">
+              {% if item.is_correct %}Correct{% else %}Incorrect{% endif %}
+            </span>
+          </div>
+
+          <p class="small mb-2">
+            Your answer: <strong>{{ item.user_answer or '(no answer)' }}</strong>
+          </p>
+
+          {% if not item.is_correct %}
+            <p class="small mb-2">
+              Correct answer: <strong>{{ item.correct_answer }}</strong>
+            </p>
+          {% endif %}
+
+          <p class="small text-muted mb-0">
+            {% if item.is_correct %}
+              You understand <strong>{{ item.concept }}</strong>.
+            {% else %}
+              Review <strong>{{ item.concept }}</strong> in the lesson.
+            {% endif %}
+          </p>
+        </div>
       </div>
-      <p class="card-text">{{ item.question }}</p>
-      <p class="mb-1"><small>Your answer: <strong>{{ item.user_answer or '(no answer)' }}</strong></small></p>
-      {% if not item.is_correct %}
-        <p class="mb-1"><small>Correct answer: <strong>{{ item.correct_answer }}</strong></small></p>
-      {% endif %}
-      {% if item.feedback %}
-        <p class="mb-0 text-muted"><small><em>{{ item.feedback }}</em></small></p>
-      {% endif %}
     </div>
-  </div>
-{% endfor %}
+  {% endfor %}
+</div>
 
 <div class="text-center mt-4">
   <a href="{{ url_for('learn', n=1) }}" class="btn btn-secondary">Review Lessons</a>

@@ -3,6 +3,7 @@
     "id": 1,
     "question": "Based on what you learned about allowed positions, is this a valid position before play starts?",
     "image": "rotaion2_receiveq.png",
+    "concept": "starting positions and rotation rules",
     "options": [
       {
         "label": "A",
@@ -21,6 +22,7 @@
     "id": 2,
     "question": "Suppose the ball is received in rotation 2. What happens next?",
     "image": "rotation2_attack.png",
+    "concept": "player movement and switching after receive",
     "options": [
       {
         "label": "A",
@@ -43,6 +45,7 @@
     "id": 3,
     "question": "Suppose the ball was played over. Do outside hitter and opposite hitter need to switch now?",
     "image": "rotation2_switch.png",
+    "concept": "base positions and when switching is needed",
     "options": [
       {
         "label": "A",
