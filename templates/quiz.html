@@ -13,7 +13,7 @@
   <div class="col-md-6 mb-3">
     {% if question.image %}
       <img src="{{ url_for('static', filename='images/' + question.image) }}"
-           alt="Question {{ n }} diagram"
+           alt="{{ question.alt if question.alt else 'Volleyball diagram for question ' ~ n }}"
            class="img-fluid border rounded"
            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
       <div class="bg-light border rounded p-5 text-center" style="display:none;">

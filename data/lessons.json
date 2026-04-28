@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "title": "Rotations&Positions",
+    "title": "Rotations & Positions",
     "subtitle": "Basics of volleyball rotations and positions",
     "image": "rotations.png",
     "alt": "Diagram showing volleyball player positions rotating anti-clockwise from positions 1 through 6. Setter (S) is 1, position numbering is starting from bottom left",
@@ -15,7 +15,7 @@
   },
   {
     "id": 2,
-    "title": "Players&Roles",
+    "title": "Players & Roles",
     "subtitle": "Who does what on the court",
     "body": "Each player has a role: the setter (S) runs the offense, the libero (L) specializes in defense, outside hitters (O) attack from the left, the opposite hitter (OP) attacks from the right, and the middle blocker (M) defends the net.",
     "popups": [
@@ -71,6 +71,7 @@
     "title": "Start of Play",
     "subtitle": "Understanding rotation positions",
     "image": "rotation1_start.png",
+    "alt": "Volleyball rotation diagram showing six players maintaining fixed positions relative to teammates on the left, right, and behind before the serve.",
     "body": "Player starting positions depend on the players next to them: to the left/right/both, and behind. Before the serve, players have to stay in their rotation spots relative to their neighbors. Think of it like a seating chart you can't break until the ball is served.",
     "note": "Example: Backrow O has to be behind S and to the right of L. After the ball is in play, they may move anywhere!"
   },
