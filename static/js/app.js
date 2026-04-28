@@ -106,4 +106,14 @@ $(document).ready(function () {
     $(this).addClass("border-primary bg-light");
     $(this).find('input[type="radio"]').prop("checked", true);
   });
+  
+  // Quiz "Need a hint?" toggle
+  $(".quiz-hint-toggle").on("click", function () {
+    const $btn = $(this);
+    const $text = $btn.next(".quiz-hint-text");
+    const willShow = $text.prop("hidden");
+    $text.prop("hidden", !willShow);
+    $btn.text(willShow ? "Hide hint" : "Need a hint?");
+    $btn.attr("aria-expanded", willShow ? "true" : "false");
+  });
 });

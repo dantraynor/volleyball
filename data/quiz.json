@@ -4,6 +4,7 @@
     "question": "Based on what you learned about allowed positions, is this a valid position before play starts?",
     "image": "rotaion2_receiveq.png",
     "concept": "starting positions and rotation rules",
+    "hint": "Walk through each player one at a time. Are they correctly behind, in front of, or beside the neighbor they need to be relative to? A starting position is only invalid if at least one of those constraints is broken.",
     "alt": "Serve and receive volleyball formation showing six players in position: outside hitters on the left, libero in middle back, setter in middle front, opposite in right front, and middle blocker in right back, with a server on the opposite side. Positions are fixed relative to teammates before the serve.",
     "options": [
       {
@@ -24,6 +25,7 @@
     "question": "Suppose the ball is received in rotation 2. What happens next?",
     "image": "rotation2_attack.png",
     "concept": "player movement and switching after receive",
+    "hint": "After the receive, each player needs to reach their attacking base position. Think about who has to end up in the center to block, and who attacks from the right side of the net.",
     "alt": "Volleyball formation showing six players setting up to attack: outside hitters on the left, libero in middle back, setter in middle front, opposite in right front, and middle blocker in right back, with a server on the opposite side. The libero currently has the volleyball.",
     "options": [
       {
@@ -48,6 +50,7 @@
     "question": "Suppose the ball was played over. Do outside hitter and opposite hitter need to switch now?",
     "image": "rotation2_switch.png",
     "concept": "base positions and when switching is needed",
+    "hint": "Switching is only needed when a hitter starts the rally on the wrong side. Check the diagram: is each hitter already on their preferred base side (outside on left, opposite on right)?",
     "alt": "Serve and receive volleyball formation showing six players: outside hitters on the left front and left back, libero in middle left back, middle blocker in middle front, setter in right front, and opposite hitter in right back, with a server on the opposite side.",
     "options": [
       {
