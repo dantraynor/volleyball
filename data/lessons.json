@@ -73,7 +73,7 @@
     "image": "rotation1_start.png",
     "alt": "Volleyball rotation diagram showing six players maintaining fixed positions relative to teammates on the left, right, and behind before the serve.",
     "body": "Player starting positions depend on the players next to them: to the left/right/both, and behind. Before the serve, players have to stay in their rotation spots relative to their neighbors. Think of it like a seating chart you can't break until the ball is served.",
-    "note": "Example: Backrow O has to be behind S and to the right of L. After the ball is in play, they may move anywhere!"
+    "note": "Example: S (setter) has to be behind backrow O and to the right of L. After the ball is in play, they may move anywhere!"
   },
   {
     "id": 4,
