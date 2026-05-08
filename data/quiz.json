@@ -1,5 +1,5 @@
 [
-    {
+  {
     "id": 1,
     "question": "Based on what you learned about allowed positions, is this a valid position before play starts?",
     "image": "rotaion2_receiveq.png",
@@ -9,16 +9,16 @@
     "options": [
       {
         "label": "A",
-        "text": "Yes"
+        "text": "Yes",
+        "feedback": "Setter pulled up, but they're still behind Opposite hitter (player in front) and to the right of Libero (player to the right). Outside hitter on the left is still in front of Libero"
       },
       {
         "label": "B",
-        "text": "No"
+        "text": "No",
+        "feedback": "Setter pulled up, but they're still behind Opposite hitter (player in front) and to the right of Libero (player to the right). Outside hitter on the left is still in front of Libero. So, every constraint is satisfied!"
       }
     ],
-    "correct": "A",
-    "feedback_correct": "Correct! Setter pulled up, but they’re still behind Opposite hitter (player in front) and to the right of Libero (player to the right). Outside hitter on the left is still in front of Libero",
-    "feedback_incorrect": "Incorrect! Setter pulled up, but they’re still behind Opposite hitter (player in front) and to the right of Libero (player to the right). Outside hitter on the left is still in front of Libero. So, every constraint is satisfied!"
+    "correct": "A"
   },
   {
     "id": 2,
@@ -30,20 +30,21 @@
     "options": [
       {
         "label": "A",
-        "text": "Opposite hitter runs to the right, switching with middle. Outside hitter from the left side pulls up to attack."
+        "text": "Opposite hitter runs to the right, switching with middle. Outside hitter from the left side pulls up to attack.",
+        "feedback": "Outside hitter from the left side started on front row, so they’re ready to attack."
       },
       {
         "label": "B",
-        "text": "Opposite hitter runs to the left, middle comes to center, outside hitter from right pulls up to attack."
+        "text": "Opposite hitter runs to the left, middle comes to center, outside hitter from right pulls up to attack.",
+        "feedback": "Outside hitter from right started on back row and so cannot hit from the front row. Simultaneously, the outside hitter from the left started on front row, so we need them back there!"
       },
       {
         "label": "C",
-        "text": "Outside hitter from left pulls up to attack. Others stay."
+        "text": "Outside hitter from left pulls up to attack. Others stay.",
+        "feedback": "The middle needs to get to their position in the center, unless we're running some special attack this one time."
       }
     ],
-    "correct": "A",
-    "feedback_correct": "Correct! The middle needs to get to their position in the center, and the opposite pulls up on the right.",
-    "feedback_incorrect": "Incorrect. The middle needs to get to their position in the center, unless we're running some special attack this one time."
+    "correct": "A"
   },
   {
     "id": 3,
@@ -55,15 +56,15 @@
     "options": [
       {
         "label": "A",
-        "text": "Yes"
+        "text": "Yes",
+        "feedback": "They are already in their base positions: outside on the left, opposite hitter on the right."
       },
       {
         "label": "B",
-        "text": "No"
+        "text": "No",
+        "feedback": "They are already in their base positions: outside on the left, opposite hitter on the right."
       }
     ],
-    "correct": "B",
-    "feedback_correct": "Correct! They are already in their base positions: outside on the left, opposite hitter on the right.",
-    "feedback_incorrect": "Incorrect. They are already in their base positions: outside on the left, opposite hitter on the right."
+    "correct": "B"
   }
 ]

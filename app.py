@@ -144,11 +144,8 @@ def quiz(n):
             user_state["quiz_answers"][str(n)] = answer
 
             is_correct = answer == question["correct"]
-            feedback = (
-                question["feedback_correct"]
-                if is_correct
-                else question["feedback_incorrect"]
-            )
+            selected_option = next((o for o in question["options"] if o["label"] == answer), None)
+            feedback = selected_option["feedback"] if selected_option else ""
 
             return render_template(
                 "quiz.html",
@@ -196,7 +193,7 @@ def results():
                 'user_answer': user_ans,
                 'correct_answer': q['correct'],
                 'is_correct': is_correct,
-                'feedback': q.get('feedback_correct') if is_correct else q.get('feedback_incorrect'),
+                'feedback': next((o['feedback'] for o in q['options'] if o['label'] == user_ans), ''),
             }
         )
     user_state["finished_at"] = datetime.now().isoformat()
