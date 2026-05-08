@@ -13,25 +13,24 @@
       }
     ]
   },
+
   {
     "id": 2,
-    "title": "Players & Roles",
-    "subtitle": "Who does what on the court",
-    "body": "Each player has a role: the setter (S) runs the offense, the libero (L) specializes in defense, outside hitters (O) attack from the left, the opposite hitter (OP) attacks from the right, and the middle blocker (M) defends the net.",
+    "title": "Players & Roles - Front Row",
+    "subtitle": "Who does what on the court (front row)",
+    "courtImage": "player_roles_front.png",
+    "body": "Each player has a role: the setter (S) runs the offense,outside hitters (O) attack from the left, and the middle blocker (M) defends the net.",
     "popups": [
       {
         "term": "tips",
         "definition": "A soft attack where the player gently places the ball just over the net or block instead of swinging hard."
-      },
-      {
-        "term": "back row hits",
-        "definition": "Attacks taken from behind the 10-foot line while jumping. The player must jump from behind the line before contacting the ball."
       }
     ],
     "table": [
       {
         "abbreviation": "M",
         "name": "Middle",
+        "icon": "middle_icon.png",
         "position": "Stands in the middle of the net. Usually the tallest player on the team.",
         "offense": "Hits fast, straight balls over the net. Their movement also draws a blocker away from the other attackers.",
         "defense": "Jumps to block at the net alongside the outside hitter, setter, or opposite hitter."
@@ -39,6 +38,7 @@
       {
         "abbreviation": "S",
         "name": "Setter",
+        "icon": "setter_icon.png",
         "position": "Starts near the net, between positions 2 and 3 (right side).",
         "offense": "Touches the ball second and sets it up for a hitter to attack - like a quarterback in American football.",
         "defense": "Blocks at the net when in the front row, and covers short balls (tips) that fall just over the net. Shielded during the serve receive, so they can focus on setting"
@@ -46,6 +46,32 @@
       {
         "abbreviation": "O",
         "name": "Outside Hitter",
+        "icon": "outside_icon.png",
+        "position": "There are two outside hitters - one at the front left of the net and one in the back right of the court.",
+        "offense": "The most common target for sets. They attack from the left side of the net.",
+        "defense": "Blocks at the net when in the front row, and passes the ball when in the back row."
+      }
+    ]
+  },
+
+
+  {
+    "id": 3,
+    "title": "Players & Roles - Back Row",
+    "subtitle": "Who does what on the court (back row)",
+    "courtImage": "player_roles_back.png",
+    "body": "Each player has a role: the libero (L) specializes in defense, outside hitters (O) attack from the left, and the opposite hitter (OP) attacks from the right.",
+    "popups": [
+      {
+        "term": "back row hits",
+        "definition": "Attacks taken from behind the 10-foot line while jumping. The player must jump from behind the line before contacting the ball."
+      }
+    ],
+    "table": [
+      {
+        "abbreviation": "O",
+        "name": "Outside Hitter",
+        "icon": "outside_icon.png",
         "position": "There are two outside hitters - one at the front left of the net and one in the back right of the court.",
         "offense": "The most common target for sets. They attack from the left side of the net.",
         "defense": "Blocks at the net when in the front row, and passes the ball when in the back row."
@@ -53,6 +79,7 @@
       {
         "abbreviation": "OP",
         "name": "Opposite Hitter",
+        "icon": "opposite_icon.png",
         "position": "Plays on the right side of the net when in the front row, and the left back when in the back row.",
         "offense": "Attacks from the right side of the net, both from the front row and with back row hits.",
         "defense": "Blocks at the net when in the front row, and passes the ball when in the back row. Shielded during the serve receive, so they can focus on attacking."
@@ -60,14 +87,31 @@
       {
         "abbreviation": "L",
         "name": "Libero",
+        "icon": "libero_icon.png",
         "position": "Stays in the back row at all times and wears a different colored jersey. Often the shortest player.",
         "offense": "Can step in to set the ball if the setter has to play it from the back row.",
         "defense": "The team's best defender. Specializes in passing hard-driven balls and keeping the ball alive."
       }
     ]
   },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   {
-    "id": 3,
+    "id": 4,
     "title": "Start of Play",
     "subtitle": "Understanding rotation positions",
     "image": "rotation1_start.png",
@@ -76,7 +120,7 @@
     "note": "Example: S (setter) has to be behind backrow O and to the right of L. After the ball is in play, they may move anywhere!"
   },
   {
-    "id": 4,
+    "id": 5,
     "title": "Rotation 1: Receive",
     "subtitle": "The setter gets in position",
     "body": "The outside hitter (O) moves to hide the setter (S) - this way, the setter can have a clear path to the net! This means setter doesn't risk having to defend, and as the best player for setting, they can focus on setting up the attack.",
@@ -138,7 +182,7 @@
     }
   },
   {
-    "id": 5,
+    "id": 6,
     "title": "Rotation 1: Attack (Part 1)",
     "subtitle": "The setter gets in position to set and attackers get ready to attack",
     "body": "As the setter (S) gets in position, the outside hitter (O) behind them comes up to the front row. This happens at the same as the libero (L) is defending the ball.",
@@ -163,7 +207,7 @@
     }
   },
   {
-    "id": 6,
+    "id": 7,
     "title": "Rotation 1: Attack (Part 2)",
     "subtitle": "The setter chooses where to send the ball",
     "body": "In rotation 1, the setter (S) is in the back row and has to get to the front row once the ball is served. When the ball is received, the setter has 3 different positions they can send it to: outside hitter, middle, or opposite, which are all on the front row.",
@@ -192,7 +236,7 @@
     }
   },
   {
-    "id": 7,
+    "id": 8,
     "title": "Rotation 1: Switch",
     "subtitle": "Moving to base positions after the ball is live",
     "note": "Switching is legal the moment the ball is served. Players run to their base positions.",
@@ -247,7 +291,7 @@
     }
   },
   {
-    "id": 8,
+    "id": 9,
     "title": "Rotation 1: Defend",
     "subtitle": "How the team covers the court",
     "body": "When the other team attacks, everyone on defense has a role. If the player is in the front row, they block at the net. If they're in the back row, they cover a zone of the court based on the position of the block.",
@@ -310,7 +354,7 @@
     }
   },
   {
-    "id": 9,
+    "id": 10,
     "title": "Rotation 1: Defend (Opposite)",
     "subtitle": "How the team covers the court (ball set to opponent's opposite hitter)",
     "body": "When the other team attacks, everyone on defense has a role. If the player is in the front row, they block at the net. If they're in the back row, they cover a zone of the court based on the position of the block.",
@@ -393,7 +437,7 @@
     }
   },
   {
-    "id": 10,
+    "id": 11,
     "title": "Rotation 1: Defend (Middle)",
     "subtitle": "How the team covers the court (ball set to opponent's middle)",
     "body": "When the other team attacks, everyone on defense has a role. If the player is in the front row, they block at the net. If they're in the back row, they cover a zone of the court based on the position of the block.",
@@ -476,7 +520,7 @@
     }
   },
   {
-    "id": 11,
+    "id": 12,
     "title": "Rotation 1: Defend (Outside)",
     "subtitle": "How the team covers the court (ball set to opponent's outside hitter)",
     "body": "When the other team attacks, everyone on defense has a role. If the player is in the front row, they block at the net. If they're in the back row, they cover a zone of the court based on the position of the block.",
@@ -559,7 +603,7 @@
     }
   },
   {
-    "id": 12,
+    "id": 13,
     "title": "Rotation 2: Receive",
     "subtitle": "Setting up for the next rotation",
     "body": "After a rotation, everyone shifts one position clockwise. Here's the new setup for rotation 2. The setter is still in the back row, but positioning of players before and after the serve slightly change.",
