@@ -54,7 +54,10 @@
     ]
   },
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> b9c87b3b3db88b9266edec7d7b285fdefd276db5
   {
     "id": 3,
     "title": "Players & Roles - Back Row",
@@ -95,6 +98,8 @@
     ]
   },
 
+<<<<<<< HEAD
+=======
 
 
 
@@ -110,6 +115,7 @@
 
 
 
+>>>>>>> b9c87b3b3db88b9266edec7d7b285fdefd276db5
   {
     "id": 4,
     "title": "Start of Play",
@@ -195,7 +201,7 @@
     ],
     "diagram": {
       "mode": "animated",
-      "inheritFrom": 4,
+      "inheritFrom": 5,
       "opponent": { "from": [955, 73], "to": [728, 246], "duration": 900 },
       "ball": {
         "from": [912, 73],
@@ -220,7 +226,7 @@
     ],
     "diagram": {
       "mode": "animated",
-      "inheritFrom": 4,
+      "inheritFrom": 5,
       "inheritPositions": "end",
       "opponent": [728, 246],
       "ballFrom": [190, 236],
@@ -250,7 +256,7 @@
     ],
     "diagram": {
       "mode": "arrows",
-      "inheritFrom": 4,
+      "inheritFrom": 5,
       "inheritPositions": "end",
       "players": [
         {
@@ -310,7 +316,7 @@
     },
     "diagram": {
       "mode": "animated",
-      "inheritFrom": 4,
+      "inheritFrom": 5,
       "inheritPositions": "end",
       "players": [
         {
