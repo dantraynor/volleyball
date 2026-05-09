@@ -19,7 +19,7 @@
     "title": "Players & Roles - Front Row",
     "subtitle": "Who does what on the court (front row)",
     "courtImage": "player_roles_front.png",
-    "body": "Each player has a role: the setter (S) runs the offense,outside hitters (O) attack from the left, and the middle blocker (M) defends the net.",
+    "body": "Each player has a role: outside hitters (O) attack from the left, the middle blocker (M) defends the net, and the setter (S) runs the offense.",
     "popups": [
       {
         "term": "tips",
@@ -27,6 +27,14 @@
       }
     ],
     "table": [
+      {
+        "abbreviation": "O",
+        "name": "Outside Hitter",
+        "icon": "outside_icon.png",
+        "position": "There are two outside hitters - one at the front left of the net and one in the back right of the court.",
+        "offense": "The most common target for sets. They attack from the left side of the net.",
+        "defense": "Blocks at the net when in the front row, and passes the ball when in the back row."
+      },
       {
         "abbreviation": "M",
         "name": "Middle",
@@ -42,14 +50,6 @@
         "position": "Starts near the net, between positions 2 and 3 (right side).",
         "offense": "Touches the ball second and sets it up for a hitter to attack - like a quarterback in American football.",
         "defense": "Blocks at the net when in the front row, and covers short balls (tips) that fall just over the net. Shielded during the serve receive, so they can focus on setting"
-      },
-      {
-        "abbreviation": "O",
-        "name": "Outside Hitter",
-        "icon": "outside_icon.png",
-        "position": "There are two outside hitters - one at the front left of the net and one in the back right of the court.",
-        "offense": "The most common target for sets. They attack from the left side of the net.",
-        "defense": "Blocks at the net when in the front row, and passes the ball when in the back row."
       }
     ]
   },
@@ -59,7 +59,7 @@
     "title": "Players & Roles - Back Row",
     "subtitle": "Who does what on the court (back row)",
     "courtImage": "player_roles_back.png",
-    "body": "Each player has a role: the libero (L) specializes in defense, outside hitters (O) attack from the left, and the opposite hitter (OP) attacks from the right.",
+    "body": "Each player has a role: the opposite hitter (OP) attacks from the right, the libero (L) specializes in defense, and outside hitters (O) attack from the left.",
     "popups": [
       {
         "term": "back row hits",
@@ -68,14 +68,6 @@
     ],
     "table": [
       {
-        "abbreviation": "O",
-        "name": "Outside Hitter",
-        "icon": "outside_icon.png",
-        "position": "There are two outside hitters - one at the front left of the net and one in the back right of the court.",
-        "offense": "The most common target for sets. They attack from the left side of the net.",
-        "defense": "Blocks at the net when in the front row, and passes the ball when in the back row."
-      },
-      {
         "abbreviation": "OP",
         "name": "Opposite Hitter",
         "icon": "opposite_icon.png",
@@ -83,6 +75,7 @@
         "offense": "Attacks from the right side of the net, both from the front row and with back row hits.",
         "defense": "Blocks at the net when in the front row, and passes the ball when in the back row. Shielded during the serve receive, so they can focus on attacking."
       },
+
       {
         "abbreviation": "L",
         "name": "Libero",
@@ -90,7 +83,17 @@
         "position": "Stays in the back row at all times and wears a different colored jersey. Often the shortest player.",
         "offense": "Can step in to set the ball if the setter has to play it from the back row.",
         "defense": "The team's best defender. Specializes in passing hard-driven balls and keeping the ball alive."
+      },
+
+      {
+        "abbreviation": "O",
+        "name": "Outside Hitter",
+        "icon": "outside_icon.png",
+        "position": "There are two outside hitters - one at the front left of the net and one in the back right of the court.",
+        "offense": "The most common target for sets. They attack from the left side of the net.",
+        "defense": "Blocks at the net when in the front row, and passes the ball when in the back row."
       }
+
     ]
   },
 
