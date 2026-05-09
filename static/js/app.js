@@ -6,7 +6,7 @@ $(document).ready(function () {
     const diagramPopups = popups.filter((p) => p.type === "diagram");
 
     if (termPopups.length) {
-      $(".lesson-text p, .lesson-text td").each(function () {
+      $(".lesson-text p, .lesson-text td, .lesson-text li").each(function () {
         let html = $(this).html();
         termPopups.forEach((p) => {
           const escaped = p.term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
