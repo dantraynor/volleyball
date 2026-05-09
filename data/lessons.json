@@ -93,7 +93,6 @@
         "offense": "The most common target for sets. They attack from the left side of the net.",
         "defense": "Blocks at the net when in the front row, and passes the ball when in the back row."
       }
-
     ]
   },
 
@@ -334,9 +333,9 @@
         }
       ],
       "zones": [
-        [550, 79, 9],
-        [550, 239, 10],
-        [550, 399, 11]
+        [550, 79, 10],
+        [550, 239, 11],
+        [550, 399, 12]
       ]
     }
   },
@@ -354,7 +353,7 @@
       }
     ],
     "nextBlocked": true,
-    "back": 8,
+    "back": 9,
     "diagram": {
       "mode": "animated",
       "players": [
@@ -437,7 +436,7 @@
       }
     ],
     "nextBlocked": true,
-    "back": 8,
+    "back": 9,
     "diagram": {
       "mode": "animated",
       "players": [
@@ -520,7 +519,7 @@
       }
     ],
     "nextBlocked": true,
-    "back": 8,
+    "back": 9,
     "diagram": {
       "mode": "animated",
       "players": [
@@ -595,7 +594,7 @@
     "subtitle": "Setting up for the next rotation",
     "body": "After a rotation, everyone shifts one position clockwise. Here's the new setup for rotation 2. The setter is still in the back row, but positioning of players before and after the serve slightly change.",
     "note": "You'll see questions about rotation 2 in the quiz.",
-    "back": 8,
+    "back": 9,
     "diagram": {
       "mode": "static",
       "players": [
