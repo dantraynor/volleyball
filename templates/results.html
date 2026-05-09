@@ -22,7 +22,7 @@
 
 <hr>
 
-<h3 class="mt-4 mb-3 text-center">Review your answers</h3>
+<h3 class="mt-4 mb-3 text-center fw-bold">Review your answers</h3>
 
 <div class="row g-3">
   {% for item in breakdown %}
@@ -46,13 +46,30 @@
             </p>
           {% endif %}
 
-          <p class="small text-muted mb-0">
+          {% if item.feedback %}
+            <p class="small mb-2">{{ item.feedback }}</p>
+          {% endif %}
+
+          <p class="small text-muted mb-2">
             {% if item.is_correct %}
               You understand <strong>{{ item.concept }}</strong>.
             {% else %}
               Review <strong>{{ item.concept }}</strong> in the lesson.
             {% endif %}
           </p>
+
+          {% if not item.is_correct and item.related_lessons %}
+            <div class="small mt-2">
+              <div class="text-muted mb-1">Review these lessons:</div>
+              <ul class="ps-3 mb-0">
+                {% for rl in item.related_lessons %}
+                  <li>
+                    <a href="{{ url_for('learn', n=rl.id) }}">{{ rl.title }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% endif %}
         </div>
       </div>
     </div>
@@ -60,8 +77,11 @@
 </div>
 
 <div class="text-center mt-4">
-  <a href="{{ url_for('learn', n=1) }}" class="btn btn-secondary">Review Lessons</a>
-  <a href="{{ url_for('quiz_intro') }}" class="btn btn-primary">Retake Quiz</a>
+  {% if first_missed_lesson_id %}
+    <a href="{{ url_for('learn', n=first_missed_lesson_id) }}" class="btn btn-primary">Review missed lessons</a>
+  {% endif %}
+  <a href="{{ url_for('lessons_index') }}" class="btn btn-secondary">All Lessons</a>
+  <a href="{{ url_for('quiz_intro') }}" class="btn btn-outline-primary">Retake Quiz</a>
   <a href="{{ url_for('home') }}" class="btn btn-outline-primary">Back to Home</a>
 </div>
 {% endblock %}

@@ -62,15 +62,3 @@ body {
   outline: none;
 }
 
-.quiz-btn {
-  display: inline-block;
-  background-color: #e6e6e6;
-  color: black;
-
-  padding: 10px 24px;
-  font-size: 1.3rem;
-  font-weight: 600;
-
-  border-radius: 14px;
-  text-decoration: none;
-}
