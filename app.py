@@ -54,6 +54,11 @@ def start():
     return redirect(url_for("learn", n=1))
 
 
+@app.route("/lessons")
+def lessons_index():
+    return render_template("lessons_index.html", lessons=LESSONS)
+
+
 @app.route("/learn/<int:n>")
 def learn(n):
     if n < 1 or n > len(LESSONS):
@@ -177,14 +182,23 @@ def quiz(n):
 
 @app.route("/results")
 def results():
+    lessons_by_id = {l["id"]: l for l in LESSONS}
     correct_count = 0
     breakdown = []
+    first_missed_lesson_id = None
     for q in QUIZ:
         qid = str(q["id"])
         user_ans = user_state["quiz_answers"].get(qid)
         is_correct = user_ans == q["correct"]
         if is_correct:
             correct_count += 1
+        related_lessons = [
+            {"id": lid, "title": lessons_by_id[lid]["title"]}
+            for lid in q.get("lesson_ids", [])
+            if lid in lessons_by_id
+        ]
+        if not is_correct and first_missed_lesson_id is None and related_lessons:
+            first_missed_lesson_id = related_lessons[0]["id"]
         breakdown.append(
             {
                 'id': q['id'],
@@ -194,11 +208,16 @@ def results():
                 'correct_answer': q['correct'],
                 'is_correct': is_correct,
                 'feedback': next((o['feedback'] for o in q['options'] if o['label'] == user_ans), ''),
+                'related_lessons': related_lessons,
             }
         )
     user_state["finished_at"] = datetime.now().isoformat()
     return render_template(
-        "results.html", correct=correct_count, total=len(QUIZ), breakdown=breakdown
+        "results.html",
+        correct=correct_count,
+        total=len(QUIZ),
+        breakdown=breakdown,
+        first_missed_lesson_id=first_missed_lesson_id,
     )
 
 

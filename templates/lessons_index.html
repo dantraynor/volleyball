@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}All Lessons - 5-1 Volleyball{% endblock %}
+
+{% block content %}
+<div class="py-4">
+  <h1 class="fw-bold mb-2">Lessons</h1>
+  <p class="lead text-muted mb-4">Jump to any lesson in the 5-1 system.</p>
+
+  <div class="row g-3">
+    {% for lesson in lessons %}
+      <div class="col-md-6 col-lg-4">
+        <a href="{{ url_for('learn', n=lesson.id) }}" class="text-decoration-none text-reset">
+          <div class="card h-100">
+            <div class="card-body">
+              <div class="small text-muted mb-1">Lesson {{ lesson.id }}</div>
+              <h5 class="card-title fw-bold mb-1">{{ lesson.title }}</h5>
+              {% if lesson.subtitle %}
+                <p class="card-text text-muted mb-0">{{ lesson.subtitle }}</p>
+              {% endif %}
+            </div>
+          </div>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
